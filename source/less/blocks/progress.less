@@ -1,0 +1,119 @@
+@size: 28px;
+@maxSize: 52px;
+@lineHeight: 4px;
+
+.progress {
+  margin-bottom: @maxSize;
+  max-width: 764px;
+  margin: 52px auto 52px auto;
+}
+
+.boxes {
+  display: flex;
+  height: @maxSize;
+  justify-content: space-between;
+  align-items: center;
+  
+  .box {
+    height: @lineHeight;
+    align-self: middle;
+    position: relative;
+    width: auto;
+    flex: 1 0 auto;
+    display: flex;
+    align-items: center;
+    // rail colour - future
+    background: @grey;
+    
+    &.past {
+      background: @blue;
+      // rail colour - past
+
+      &:nth-child(2) {
+          background: linear-gradient(90deg, #0066FF 0%, #FF238D 100%);
+      }
+      .inner {
+        width: 28px;
+        height: 28px;
+        background: #F5F7FA;
+        border: 2px solid #0066FF;
+        box-sizing: border-box;
+        border-radius: 14px;
+      }
+    }
+    &:last-of-type {
+      flex: 0;
+    }
+      
+    .inner {
+      white-space: nowrap;
+      // overflow: hidden;
+      box-sizing: border-box;
+      min-width: @size;
+      max-width: 100%;
+      max-height: @size;
+      min-height: @size;
+      position: relative;
+      
+      background: #fff;      
+      align-self: center;
+      border-left: 1px solid #aaa;
+      border-top: 1px solid #aaa;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      display: flex; 
+      
+      min-height: @size;
+      max-height: @size;
+      background: #F5F7FA;
+      border: 2px solid @grey;
+      box-sizing: border-box;
+      border-radius: 14px;
+
+  
+    }
+    
+    .legend {
+      position: absolute;
+      left: 50%;
+      top: -35px;
+      transform: translate(-50%, 0);
+      font-family: 'Fira Sans', sans-serif;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 13px;
+
+        &-black {
+            color: @black-footer;
+        }
+        &-blue {
+            color: @blue;
+        }
+    }
+    
+    &.current {
+      .inner {
+        min-height: @size;
+        max-height: @size;
+        background: #F5F7FA;
+        border: 2px solid #FF238D;
+        box-sizing: border-box;
+        border-radius: 14px;
+      }
+    }
+  }
+}
+
+.box__number {
+    font-family: 'Fira Sans', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 21px;
+    color: @black-footer;
+
+    &--blue {
+        color: @blue;
+    }
+}
